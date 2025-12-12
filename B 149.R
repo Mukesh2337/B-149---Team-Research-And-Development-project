@@ -43,7 +43,6 @@ p1 <- ggplot(airline_summary, aes(x = FlightName, y = mean_price)) +
        y = "Average Price (INR)") +
   theme_minimal() +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
-
 print(p1)
 
 p2 <- ggplot(df, aes(x = Price_int)) +
@@ -55,3 +54,4 @@ p2 <- ggplot(df, aes(x = Price_int)) +
 
 
 print(p2)
+
