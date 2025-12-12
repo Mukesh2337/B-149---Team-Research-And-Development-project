@@ -16,3 +16,15 @@ df <- df %>%
       m_h * 60 + m_m
     }
   )
+airline_summary <- df %>%
+  group_by(FlightName) %>%
+  summarise(
+    mean_price = mean(Price_int, na.rm = TRUE),
+    sd_price   = sd(Price_int, na.rm = TRUE),
+    n          = n()
+  ) %>%
+  ungroup()
+
+full_service <- c("Air India", "Vistara")
+df <- df %>%
+  mutate(CarrierType = if_else(FlightName %in% full_service, "Full-service", "Low-cost"))
